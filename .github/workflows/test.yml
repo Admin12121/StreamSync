@@ -1,0 +1,23 @@
+on: 
+  push:
+    branches:
+      - main
+name: 🚀 Deploy website on push
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+      
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.GIT_CPANEL_Test_SERVER }}
+        username: ${{ secrets.GIT_CPANEL_Test_USER }}
+        password: ${{ secrets.GIT_CPANEL_Test_PWD }}
+        protocol: ${{ secrets.GIT_CPANEL_Test_PROTOCOL }}
+        local-dir: ./Streaming/
