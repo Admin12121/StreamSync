@@ -19,5 +19,4 @@ jobs:
         server: ${{ secrets.GIT_CPANEL_Test_SERVER }}
         username: ${{ secrets.GIT_CPANEL_Test_USER }}
         password: ${{ secrets.GIT_CPANEL_Test_PWD }}
-        protocol: ${{ secrets.GIT_CPANEL_Test_PROTOCOL }}
         local-dir: ./Streaming/
