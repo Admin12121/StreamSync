@@ -31,7 +31,7 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure-vfx1up&ljudy&fgegvt(=6c6i963uwfk&y)wj4k2o#nu9c!^oe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['backendcore.vickytajpuriya.com','www.backendcore.vickytajpuriya.com']
 
