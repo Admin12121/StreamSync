@@ -51,7 +51,7 @@ def signup(request):
         myuser.is_active = False
         myuser.save()
         
-        messages.success(request, "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.")
+        messages.success(request, "Please check your email to confirm your email address in order to activate your account.")
         
         # Welcome Email
         subject = "Welcome to StreamSync !!"
@@ -120,6 +120,13 @@ def signin(request):
             return redirect('home')
     
     return render(request, "authentication/signin.html")
+
+@auth
+def live(request):
+    return render(request, "authentication/stream.html", {'username': request.user.username})
+@auth
+def video(request):
+    return render(request, "authentication/video.html")
 
 @auth
 def signout(request):
