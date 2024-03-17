@@ -11,6 +11,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.contrib.auth import authenticate, login, logout
 from . tokens import generate_token
 from .middlewares import auth, guest
+from django.contrib.sessions.models import Session
 # Create your views here.
 @auth
 def home(request):
@@ -124,9 +125,20 @@ def signin(request):
 @auth
 def live(request):
     return render(request, "authentication/stream.html", {'username': request.user.username})
+
+@auth
+def profile(request):
+    upload_text = "upload"  # The text you want to pass
+    request.session['upload_text'] = upload_text  # Store the text in session
+    return render(request, "authentication/profile.html", {'username': request.user.username,'upload_text': upload_text})
+
 @auth
 def video(request):
     return render(request, "authentication/video.html")
+
+@auth
+def upload(request):
+    return render(request,'authentication/upload.html',{})
 
 @auth
 def signout(request):

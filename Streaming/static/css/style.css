@@ -239,6 +239,8 @@ body {
 }
 .user-profile{
   display: flex;
+  cursor: pointer;
+  text-decoration: none;
   align-items: center;
 }
 .user-settings svg {
