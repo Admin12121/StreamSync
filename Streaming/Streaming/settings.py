@@ -32,9 +32,9 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 SECRET_KEY = 'django-insecure-vfx1up&ljudy&fgegvt(=6c6i963uwfk&y)wj4k2o#nu9c!^oe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*','backendcore.vickytajpuriya.com','www.backendcore.vickytajpuriya.com']
+ALLOWED_HOSTS = ['backendcore.vickytajpuriya.com','www.backendcore.vickytajpuriya.com']
 
 
 # Application definition
@@ -142,10 +142,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #HTTPS settings
-# SESSION_COOKIE_SECURE =True
-# CSRF_COOKIE_SECURE=True
-# SECURE_SSL_REDIRECT =True
+SESSION_COOKIE_SECURE =True
+CSRF_COOKIE_SECURE=True
+SECURE_SSL_REDIRECT =True
 
-# SECURE_HSTS_SECONDS = 3153600
-# SECURE_HSTS_PRELOAD = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 3153600
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
