@@ -261,6 +261,7 @@ img {
 .video video {
   transition: 0.4s;
   max-width: 100%;
+  height: 170px;
   display: block;
   border-radius: 4px 4px 0 0;
 }
@@ -273,13 +274,7 @@ img {
   background-color: #252936;
   cursor: pointer;
 }
-.video:hover .video-time {
-  opacity: 0;
-}
-.video:hover video {
-  transform: scale(2.2);
-  transform-origin: center;
-}
+
 .video:hover .view {
   padding: 10px;
 }
@@ -299,9 +294,11 @@ img {
 .video-content {
   width: 100%;
   color: var(--main-color);
-  padding: 15px 10px 0;
+  padding: 10px ;
   border-radius: 0 0 4px 4px;
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

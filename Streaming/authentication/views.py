@@ -12,10 +12,11 @@ from django.contrib.auth import authenticate, login, logout
 from . tokens import generate_token
 from .middlewares import auth, guest
 from django.contrib.sessions.models import Session
+from .models import *
 # Create your views here.
 @auth
 def home(request):
-    return render(request, "authentication/home.html")
+    return render(request, "authentication/video.html")
 @guest
 def signup(request):
     if request.method == "POST":
@@ -130,7 +131,8 @@ def live(request):
 def profile(request):
     upload_text = "upload"  # The text you want to pass
     request.session['upload_text'] = upload_text  # Store the text in session
-    return render(request, "authentication/profile.html", {'username': request.user.username,'upload_text': upload_text})
+    video = Video.objects.filter(user=request.user)
+    return render(request, "authentication/profile.html", {'username': request.user.username,'upload_text': upload_text, "video": video})
 
 @auth
 def video(request):
@@ -138,7 +140,23 @@ def video(request):
 
 @auth
 def upload(request):
-    return render(request,'authentication/upload.html',{})
+    if request.method == 'POST':
+        user = request.user
+        title = request.POST.get('title')
+        video = request.FILES.get('video')
+        description = request.POST.get('description')
+        image = request.FILES.get('image')
+
+        video_obj = Video.objects.create(
+            user=user,
+            title=title,
+            video=video,
+            description=description,
+            image=image,
+        )
+        return redirect('profile')
+    else:
+        return render(request,'authentication/upload.html',{})
 
 @auth
 def signout(request):
