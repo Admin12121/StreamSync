@@ -5259,3 +5259,17 @@ article.label2.type3 .post-labels-side a:nth-child(4):before {
         padding-left: 20px
     }
 }
+
+.widget-content{
+    display: flex;
+    flex-wrap: wrap;   
+    gap: 30px;
+    padding: 10px;
+}
+
+.widget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

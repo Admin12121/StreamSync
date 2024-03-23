@@ -35,7 +35,13 @@
           </ul>
           <div id="utility">
             {% if user.is_authenticated %}
-            <span class="user_profile"><img src="/media/{{profile.profile}}" alt=""></span>
+            <span class="user_profile">
+              {% if profile.profile %}
+              <img src="/media/{{ profile.profile }}" alt="{{request.user.username}}">
+          {% else %}
+              <img src="https://i.pinimg.com/564x/55/c9/14/55c9141b04c2d91a84e248417b51229c.jpg" alt="Default Profile Image">
+          {% endif %}
+            </span>
             <a href="{% url 'profile' %}">{{request.user.username}}</a>
           <a href="{% url 'signout' %}">
             <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">

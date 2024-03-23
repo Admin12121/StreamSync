@@ -7,6 +7,27 @@
   {% endblock css %}
   {% endblock header %} 
   {% block content %}
+  {% for message in messages %}
+  <ul id='one'>
+      <li class='one'>
+      <div class='container'>
+          <div class='notification'>
+          <span class='before'></span>
+          <span class='after'></span>
+          <header>
+              <h2>Messages</h2>
+              <span class='timestamp'>Now</span>
+          </header>
+          <div class='content'>
+              <span class='sender'>{{ message }}</span>
+              <span class='message'>Check it out! ✨</span>
+          </div>
+          </div>
+      </div>
+      </li>
+      </li>
+  </ul>
+{% endfor %}
        <div class="profile_section">
          <div class="user_preview">
             <img src="/media/{{data.profile}}" alt="">
@@ -14,7 +35,7 @@
                 <span class="user_data">
                     <h1 class="user_name">{{request.user.username}}</h1>
                     <p class="user_email">{{request.user.email}}</p>
-                    <a href="{% url 'edit' %}" class="edit_profile">
+                    <a href="{% url 'edit' %}" style="gap:5px" class="edit_profile">
                         <svg width="24px"  height="24px"  viewBox="0 0 24 24"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <title>Iconly/Light/Setting</title>
                             <g id="Iconly/Light/Setting" stroke="#fff"  stroke-width="1.5"  fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
@@ -24,7 +45,17 @@
                                 </g>
                             </g>
                         </svg>
-                        Edit_Profile</a>
+                        Edit_Profile
+                    </a>
+                    <a href="{% url 'password' email=request.user.email %}" style="top:60px; gap:5px" class="edit_profile">
+                        <svg width="24px"  height="24px"  viewBox="0 0 24 24"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6889 12.0001C10.6889 13.0231 9.85986 13.8521 8.83686 13.8521C7.81386 13.8521 6.98486 13.0231 6.98486 12.0001C6.98486 10.9771 7.81386 10.1481 8.83686 10.1481H8.83986C9.86186 10.1491 10.6889 10.9781 10.6889 12.0001Z" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6919 12.0001H17.0099V13.8521" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.1821 13.8521V12.0001" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 12.0001C2.75 5.06312 5.063 2.75012 12 2.75012C18.937 2.75012 21.25 5.06312 21.25 12.0001C21.25 18.9371 18.937 21.2501 12 21.2501C5.063 21.2501 2.75 18.9371 2.75 12.0001Z" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        Update Password
+                    </a>
                 </span>
                 <span class="user_data">
                     <p>{{data.bio}}</p>

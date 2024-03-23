@@ -110,7 +110,50 @@ def activate(request,uidb64,token):
         return redirect('signin')
     else:
         return render(request,'activation_failed.html')
+    
+@guest
+def reset_password(request, email):
+    try:
+        user = User.objects.get(email=email)
+    except User.DoesNotExist:
+        messages.error(request, 'User with this email does not exist.')
+        return redirect('password_reset')  # Redirect to password reset page or any other page
+    
+    if request.method == 'POST':
+        new_password = request.POST['new_password']
+        confirm_password = request.POST['confirm_password']
+        if new_password == confirm_password:
+            user.set_password(new_password)
+            user.save()
+            messages.success(request, 'Password reset successfully.')
+            return redirect('profile')  # Redirect to profile or any other page
+        else:
+            messages.error(request, 'Passwords do not match.')
+            return redirect('reset_password', email=email)
+    return render(request, 'authentication/reset_password.html', {'email': email})
 
+@auth
+def password(request, email):
+    try:
+        user = User.objects.get(email=email)
+    except User.DoesNotExist:
+        return HttpResponse("User does not exist")
+
+    if request.method == 'POST':
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
+        if new_password == confirm_password:
+            user.set_password(new_password)
+            user.save()
+            messages.success(request, 'Password reset successfully.')
+            print("success")
+            return redirect('profile')  # Redirect to profile or any other page
+        else:
+            messages.error(request, 'Passwords do not match.')
+            print("failed")
+            return redirect('profile', email=email)
+
+    return render(request, 'authentication/passwor.html', {'email': email})
 @guest
 def signin(request):
     if request.method == 'POST':
@@ -138,15 +181,30 @@ def signin(request):
 
 @auth
 def live(request):
-    return render(request, "authentication/stream.html", {'username': request.user.username})
+    data = get_object_or_404(UserInfo, user=request.user)
+    context = {
+        'username': request.user.username,
+        'profile': data,
+    }
+    return render(request, "authentication/stream.html",context)
 
 @auth
 def profile(request):
     data = get_object_or_404(UserInfo, user=request.user)
-    return render(request, "authentication/profile.html", {'data': data})
+    profile = get_object_or_404(UserInfo, user=request.user)
+    context = {
+        'data': data,
+        'profile': profile,
+    }
+    return render(request, "authentication/profile.html", context)
 @auth
 def edit(request):
     data = get_object_or_404(UserInfo, user=request.user)
+    profile = get_object_or_404(UserInfo, user=request.user)
+    context = {
+        'data': data,
+        'profile': profile,
+    }
     if request.method == 'POST':
         user = request.user
         if 'fname' in request.POST and request.POST['fname']:
@@ -173,19 +231,30 @@ def edit(request):
         except Exception as e:
             print(request, f'An error occurred: {str(e)}')
         return redirect('profile')
-    return render(request, "authentication/profile_update.html", {'data': data})
+    return render(request, "authentication/profile_update.html",context)
 
 @auth
 def event(request):
     event = Events.objects.all()
-    return render(request, "authentication/event.html", {'username': request.user.username, "event" : event})
+    data = get_object_or_404(UserInfo, user=request.user)
+    context = {
+        'event': event,
+        'profile': data,
+    }
+    return render(request, "authentication/event.html",context)
 
 @auth
 def newspost(request, title):
     data = get_object_or_404(News, title=title)
-    news = News.objects.exclude(title=title)
-    current_post_url = request.build_absolute_uri()
-    return render(request, "authentication/post.html", {'data': data})
+    random_news = News.objects.exclude(title=title)
+    news = random.sample(list(random_news), min(3, random_news.count()))
+    profile = get_object_or_404(UserInfo, user=request.user)
+    context = {
+        'data':data,
+        'news': news,
+        'profile': profile,
+    }
+    return render(request, "authentication/post.html", context)
 
 @auth
 def video(request):
@@ -212,7 +281,12 @@ def player(request,title):
 @auth
 def upload(request):
     context = News.objects.all()
-    return render(request, 'authentication/upload.html', {'context' : context})
+    data = get_object_or_404(UserInfo, user=request.user)
+    content = {
+        'context': context,
+        'profile': data,
+    }
+    return render(request, 'authentication/upload.html', content)
 
 @auth
 def signout(request):
