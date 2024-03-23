@@ -1,0 +1,52 @@
+{% extends 'authentication/base.html' %} 
+
+   {% block header %}
+       {% load static %}
+       <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    {% endblock header %}
+
+{% block content %}
+<div class="contact_wrapper">
+    <div class="container">
+        <div class="text">Responsive Contact us Form</div>
+        <form method="post" action="{% url 'support' %}">
+            {% csrf_token %}
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" name="fname" required>
+                 <div class="underline"></div>
+                 <label for="">First Name</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" name="lname" required>
+                 <div class="underline"></div>
+                 <label for="">Last Name</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" name="email" required>
+                 <div class="underline"></div>
+                 <label for="">Email Address</label>
+              </div>
+
+           </div>
+           <div class="form-row">
+              <div class="input-data textarea">
+                 <textarea rows="8" cols="80" name="text" required></textarea>
+                 <br />
+                 <div class="underline"></div>
+                 <label for="">Write your message</label>
+                 <br />
+                 <div class="form-row submit-btn">
+                    <div class="input-data">
+                       <div class="inner"></div>
+                       <input type="submit" value="submit">
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </form>
+     </div>
+</div>
+{% endblock content %}

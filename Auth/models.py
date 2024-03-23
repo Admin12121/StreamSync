@@ -80,3 +80,12 @@ class Events(models.Model):
 
     def __str__(self):
         return f"{self.event}"
+
+class Contact(models.Model):
+    fname =  models.CharField(max_length=100, blank=True, null=True)
+    lname =  models.CharField(max_length=100, blank=True, null=True)
+    email =  models.CharField(max_length=100, blank=True, null=True)
+    message =  models.TextField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.fname} - {self.email}"

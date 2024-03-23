@@ -29,9 +29,8 @@
               <li><a href="/">Home</a></li>
               <li><a href="{% url 'event'%}">Event</a></li>
               <li><a href="{% url 'upload'%}">Blog  &amp; News</a></li>
-              <li>
-                  <a href="{% url 'live' %}">Live</a>
-              </li>
+              <li> <a href="{% url 'live' %}">Live</a> </li>
+              <li> <a href="{% url 'support' %}">Support</a> </li>
           </ul>
           <div id="utility">
             {% if user.is_authenticated %}

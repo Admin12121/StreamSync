@@ -261,6 +261,18 @@ def video(request):
     return render(request, "authentication/video.html")
 
 @auth
+def support(request):
+    if request.method == 'POST':
+        fname = request.POST['fname'] 
+        lname = request.POST['lname'] 
+        email = request.POST['email']
+        message = request.POST['text']  # Fix the variable name here
+        comment = Contact.objects.create(fname=fname, lname=lname, email=email, message=message)
+        comment.save()
+    return render(request, "authentication/support.html")
+
+
+@auth
 def player(request,title):
     data = get_object_or_404(Video, title=title)
     data.views += 1

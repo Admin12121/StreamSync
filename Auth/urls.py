@@ -11,6 +11,7 @@ urlpatterns = [
     path("live/", views.live, name="live"),
     path("event/", views.event, name="event"),
     path("profile/", views.profile, name="profile"),
+    path("support/", views.support, name="support"),
     path("profile_update/", views.edit, name="edit"),
     path("newspost/<str:title>/", views.newspost, name="newspost"),
     path("player/<str:title>/", views.player, name="player"),
