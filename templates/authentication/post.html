@@ -1,0 +1,499 @@
+{% extends 'authentication/base.html' %} {% block header %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+{% endblock header %} {% block content %}
+<div class="main-container with-sidebar right type1 lift-up lift-image">
+  <main class="centered-bottom" id="main" tabindex="-1">
+    <div class="page-main-outer feed-type1">
+      <div class="main section" id="page_body" name="Page Body">
+        <div class="widget Blog" data-version="2" id="Blog1">
+          <div class="blog-posts hfeed container">
+            <article class="post-outer-container type1 label2">
+              <div class="post-outer">
+                <div class="post-content container">
+                  <div class="posts-top full-top max-post-width">
+                    <div class="posts-top-wrap">
+                      <div class="post-title-wrap">
+                        <div class="post-title-container">
+                          <div class="bread-crumbs">
+                            <a
+                              href="/"
+                              rel="tag"
+                              >Sports</a
+                            >
+                            <a
+                              href="/upload/"
+                              rel="tag"
+                              >featured</a
+                            >
+                          </div>
+                          <a name="6376249552750407791"></a>
+                          <h1 class="post-title entry-title">
+                            {% if data.title %}
+                              {{data.title}}
+                            {% endif %}
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-header-container container">
+                      <div class="post-header">
+                        <div class="post-header-line-1">
+                          <span class="byline post-author vcard">
+                          <span class="byline post-timestamp">
+                            <meta
+                            />
+                            <a
+                              class="timestamp-link"
+                              rel="bookmark"
+                              title="permanent link"
+                            >
+                              <time
+                                class="published"
+                                datetime="2022-08-25T07:54:00-07:00"
+                                title="2022-08-25T07:54:00-07:00"
+                              >
+                                August 25, 2022
+                              </time>
+                            </a>
+                          </span>
+                        </div>
+
+                      <div class="clear"></div>
+                    </div>
+                  </div>
+                  <div class="posts-bottom max-post-width post-page-bottom">
+                    <div class="posts-bottom-inner commentbox-wrap">
+                      <div class="is-sticky-main">
+                        <div class="featured-image-wrap">
+                          <img
+                            alt="Code suggests iOS 16 will let users delete their Apple Wallet app"
+                          {% if data.poster %}
+                            src="/media/{{data.poster}}"
+                          {% endif %}
+                          />
+                        </div>
+                        <div class="post-body-container">
+                          <div
+                            class="post-body entry-content float-container"
+                            id="post-body-6376249552750407791"
+                          >
+                          {% if data.description %}
+                            {{data.description}}
+                          {% endif %}
+                            <div><br /></div>
+                            <div>
+                            </div>
+                            <div><br /></div>
+                            <div
+                              class="separator"
+                              style="clear: both; text-align: center"
+                            >
+                              <a
+                                {% if data.poster %}
+                                  href="/media/{{data.image}}"
+                                {% endif %}
+                                style="margin-left: 1em; margin-right: 1em"
+                                ><img
+                                  border="0"
+                                  data-original-height="780"
+                                  data-original-width="1170"
+                                  height="426"
+                                  {% if data.poster %}
+                                  src="/media/{{data.image}}"
+                                  {% endif %}
+                                  width="640"
+                              /></a>
+                            </div>
+                            <div><br /></div>
+                            <div><br /><br />
+                              <h2 style="text-align: left">
+                                {% if data.title1 %}
+                                 {{data.title1}}
+                                {% endif %}
+                              </h2>
+                              {% if data.article %}
+                               {{data.article}}
+                              {% endif %}
+                            </div>
+                            <div><br /></div>
+                            <div>
+                              <div>
+                                  <br />
+                                  <div
+                                    class="postcard"
+                                    data-id="7565436136479574601"
+                                  ></div>
+                                  <br />
+                                </div>
+                                <div><br /></div>
+                                <h3 style="text-align: left">
+                                  {% if data.title2 %}
+                                   {{data.title2}}
+                                  {% endif %}
+                                </h3>
+                                {% if data.article2 %}
+                                 {{data.article2}}
+                                {% endif %}
+                                <div>
+                                  <br />
+                                  <h3 style="text-align: left">
+                                    {% if data.title3 %}
+                                      {{data.title3}}
+                                    {% endif %}
+                                  </h3>
+                                </div>
+                                <div>
+                                  {% if data.article3 %}
+                                      {{ data.article3 }}
+                                  {% endif %}
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-bottom">
+                          <div class="post-footer">
+                            <div
+                              class="post-footer-line post-footer-line-1"
+                            ></div>
+                            <div class="post-footer-line post-footer-line-2">
+                              <div class="byline post-labels">
+                                <span class="byline-label"
+                                  ><svg
+                                    fill="currentColor"
+                                    height="1em"
+                                    stroke="currentColor"
+                                    stroke-width="0"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <g>
+                                      <path
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      ></path>
+                                      <path
+                                        d="M10.9 2.1l9.899 1.415 1.414 9.9-9.192 9.192a1 1 0 0 1-1.414 0l-9.9-9.9a1 1 0 0 1 0-1.414L10.9 2.1zm.707 2.122L3.828 12l8.486 8.485 7.778-7.778-1.06-7.425-7.425-1.06zm2.12 6.364a2 2 0 1 1 2.83-2.829 2 2 0 0 1-2.83 2.829z"
+                                      ></path>
+                                    </g>
+                                  </svg>
+                                  Labels</span
+                                >
+                                <span class="footer-labels">
+                                  <a
+                                    href="https://unnaodemo.blogspot.com/search/label/Apple"
+                                    rel="tag"
+                                    >Apple<svg
+                                      fill="currentColor"
+                                      height="1em"
+                                      stroke="currentColor"
+                                      stroke-width="0"
+                                      viewBox="0 0 16 16"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"
+                                        fill-rule="evenodd"
+                                      ></path></svg
+                                  ></a>
+                                  <a
+                                    href="https://unnaodemo.blogspot.com/search/label/featured"
+                                    rel="tag"
+                                    >featured<svg
+                                      fill="currentColor"
+                                      height="1em"
+                                      stroke="currentColor"
+                                      stroke-width="0"
+                                      viewBox="0 0 16 16"
+                                      width="1em"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"
+                                        fill-rule="evenodd"
+                                      ></path></svg
+                                  ></a>
+                                </span>
+                              </div>
+                            </div>
+                            <div class="post-footer-line post-footer-line-3">
+                              <span class="byline post-location">
+                                <svg
+                                  fill="currentColor"
+                                  height="1em"
+                                  stroke="currentColor"
+                                  stroke-width="0"
+                                  viewBox="0 0 24 24"
+                                  width="1em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                  <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z"
+                                  ></path>
+                                  <circle cx="12" cy="9" r="2.5"></circle>
+                                </svg>
+                                Location
+                                <a
+                                  href="https://maps.google.com/maps?q=New+York,+NY,+USA@40.7127753,-74.0059728&z=10"
+                                  target="_blank"
+                                  >New York, NY, USA</a
+                                >
+                              </span>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="author-profile">
+                              <img
+                                alt="Salman"
+                                class="author-image"
+                                height="84px"
+                                loading="lazy"
+                                src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3_342jILy1thISlutDqHkZs_EiXXyHq4aIpTYmMNHSffx-rcI97jXfKgdqbMk7hJ4Q9zGnpU80uummn7VoDQEJfg8ZTUfpEhEYmdIqQOQNmETuXM64y3XLIDO1z8QMw/s113/1.jpg"
+                                width="84px"
+                              />
+                              <div class="author-about">
+                                <div class="author-name">
+                                  <a
+                                    class="g-profile"
+                                    href=""
+                                    rel="author"
+                                    title="author profile"
+                                  >
+                                    <span> Salman </span>
+                                  </a>
+                                </div>
+                                <div>
+                                  <span class="author-desc">
+                                    Blogger, Developer
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="comment-ref"></div>
+                          </div>
+                          <div
+                            class="post-share-buttons post-share-buttons-bottom"
+                          >
+                            <div
+                              class="byline post-share-buttons goog-inline-block"
+                            >
+                              <div
+                                aria-owns="sharing-popup-Blog1-byline-6376249552750407791"
+                                class="sharing"
+                                data-title="Code suggests iOS 16 will let users delete their Apple Wallet app"
+                              >
+                                <button
+                                  aria-controls="sharing-popup-Blog1-byline-6376249552750407791"
+                                  aria-label="Share"
+                                  class="sharing-button touch-icon-button flat-button ripple"
+                                  id="sharing-button-Blog1-byline-6376249552750407791"
+                                  role="button"
+                                >
+                                  Share
+                                </button>
+                                <div class="share-buttons-container">
+                                  <ul
+                                    aria-hidden="true"
+                                    aria-label="Share"
+                                    class="share-buttons hidden"
+                                    id="sharing-popup-Blog1-byline-6376249552750407791"
+                                    role="menu"
+                                  >
+                                    <li>
+                                      <span
+                                        aria-label="Get link"
+                                        class="sharing-platform-button sharing-element-link"
+                                        data-href="https://www.blogger.com/share-post.g?blogID=6838251608361009884&postID=6376249552750407791&target="
+                                        data-url="https://unnaodemo.blogspot.com/2022/08/code-suggests-ios-16-will-let-users.html"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        title="Get link"
+                                      >
+                                        <svg
+                                          class="svg-icon-24 touch-icon sharing-link"
+                                        >
+                                          <use
+                                            xlink:href="/responsive/sprite_v1_6.css.svg#ic_24_link_dark"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                          ></use>
+                                        </svg>
+                                        <span class="platform-sharing-text"
+                                          >Get link</span
+                                        >
+                                      </span>
+                                    </li>
+                                    <li>
+                                      <span
+                                        aria-label="Share to Facebook"
+                                        class="sharing-platform-button sharing-element-facebook"
+                                        data-href="https://www.blogger.com/share-post.g?blogID=6838251608361009884&postID=6376249552750407791&target=facebook"
+                                        data-url="https://unnaodemo.blogspot.com/2022/08/code-suggests-ios-16-will-let-users.html"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        title="Share to Facebook"
+                                      >
+                                        <svg
+                                          class="svg-icon-24 touch-icon sharing-facebook"
+                                        >
+                                          <use
+                                            xlink:href="/responsive/sprite_v1_6.css.svg#ic_24_facebook_dark"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                          ></use>
+                                        </svg>
+                                        <span class="platform-sharing-text"
+                                          >Facebook</span
+                                        >
+                                      </span>
+                                    </li>
+                                    <li>
+                                      <span
+                                        aria-label="Share to Twitter"
+                                        class="sharing-platform-button sharing-element-twitter"
+                                        data-href="https://www.blogger.com/share-post.g?blogID=6838251608361009884&postID=6376249552750407791&target=twitter"
+                                        data-url="https://unnaodemo.blogspot.com/2022/08/code-suggests-ios-16-will-let-users.html"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        title="Share to Twitter"
+                                      >
+                                        <svg
+                                          class="svg-icon-24 touch-icon sharing-twitter"
+                                        >
+                                          <use
+                                            xlink:href="/responsive/sprite_v1_6.css.svg#ic_24_twitter_dark"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                          ></use>
+                                        </svg>
+                                        <span class="platform-sharing-text"
+                                          >Twitter</span
+                                        >
+                                      </span>
+                                    </li>
+                                    <li>
+                                      <span
+                                        aria-label="Share to Pinterest"
+                                        class="sharing-platform-button sharing-element-pinterest"
+                                        data-href="https://www.blogger.com/share-post.g?blogID=6838251608361009884&postID=6376249552750407791&target=pinterest"
+                                        data-url="https://unnaodemo.blogspot.com/2022/08/code-suggests-ios-16-will-let-users.html"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        title="Share to Pinterest"
+                                      >
+                                        <svg
+                                          class="svg-icon-24 touch-icon sharing-pinterest"
+                                        >
+                                          <use
+                                            xlink:href="/responsive/sprite_v1_6.css.svg#ic_24_pinterest_dark"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                          ></use>
+                                        </svg>
+                                        <span class="platform-sharing-text"
+                                          >Pinterest</span
+                                        >
+                                      </span>
+                                    </li>
+                                    <li>
+                                      <span
+                                        aria-label="Email"
+                                        class="sharing-platform-button sharing-element-email"
+                                        data-href="https://www.blogger.com/share-post.g?blogID=6838251608361009884&postID=6376249552750407791&target=email"
+                                        data-url="https://unnaodemo.blogspot.com/2022/08/code-suggests-ios-16-will-let-users.html"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        title="Email"
+                                      >
+                                        <svg
+                                          class="svg-icon-24 touch-icon sharing-email"
+                                        >
+                                          <use
+                                            xlink:href="/responsive/sprite_v1_6.css.svg#ic_24_email_dark"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                          ></use>
+                                        </svg>
+                                        <span class="platform-sharing-text"
+                                          >Email</span
+                                        >
+                                      </span>
+                                    </li>
+                                    <li aria-hidden="true" class="hidden">
+                                      <span
+                                        aria-label="Share to other apps"
+                                        class="sharing-platform-button sharing-element-other"
+                                        data-url="https://unnaodemo.blogspot.com/2022/08/code-suggests-ios-16-will-let-users.html"
+                                        role="menuitem"
+                                        tabindex="-1"
+                                        title="Share to other apps"
+                                      >
+                                        <svg
+                                          class="svg-icon-24 touch-icon sharing-sharingOther"
+                                        >
+                                          <use
+                                            xlink:href="/responsive/sprite_v1_6.css.svg#ic_more_horiz_black_24dp"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                          ></use>
+                                        </svg>
+                                        <span class="platform-sharing-text"
+                                          >Other Apps</span
+                                        >
+                                      </span>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="comment-box"
+                          id="comment-box"
+                          onclick="return(lcmt());"
+                        >
+                          <span>1 Comments</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="sidebar-new">
+                      <div id="sidebar-new-i"></div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="related-posts max-post-width section" id="related_Posts">
+      <div class="widget HTML" data-version="2" id="HTML10">
+        <h3 class="title">Related Posts</h3>
+        <div class="widget-content">
+          {% if context %}
+            {% for x in context %}
+              <article class="card card--1">
+                <div class="card__info-hover">
+                  <svg class="card__like"  viewBox="0 0 24 24">
+                  <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
+                  </svg>
+                  
+                </div>
+                <div class="card__img"></div>
+                <a href="{% url 'newspost' x.title %}" class="card_link">
+                  <div class="card__img--hover" style="background-image: url(/media/{{x.poster}})"></div>
+                </a>
+                <div class="card__info">
+                  <span class="card__category"> Blog</span>
+                  <h3 class="card__title">{{x.title}}</h3>
+                  <span class="card__by">by <a href="#" class="card__author" title="author">Celeste Mills</a></span>
+                </div>
+              </article>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock content %}

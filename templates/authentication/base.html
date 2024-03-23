@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+   <link rel="icon" type="image/x-icon" href="{% static 'image/logo1.svg' %}">
+   <title>StreamSync</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block header %}
+  {% endblock header %}
+</head>
+<body>
+  {% if user.is_authenticated %}
+    <header>
+      <div class="banner">live starting on 5pm sat</div>
+      <nav>
+            
+          <a href="/" id="logo">
+            <img style="height:32px" src="{% static 'image/logo1.svg' %}" alt="">
+              Olampic <br> Hub
+          </a>
+          <ul class="navigation-menu">
+              <li><a href="/">Home</a></li>
+              <li><a href="{% url 'event'%}">Event</a></li>
+              <li><a href="{% url 'upload'%}">Blog  &amp; News</a></li>
+              <li>
+                  <a href="{% url 'live' %}">Live</a>
+              </li>
+          </ul>
+          <div id="utility">
+            {% if user.is_authenticated %}
+            <span class="user_profile"><img src="/media/{{profile.profile}}" alt=""></span>
+            <a href="{% url 'profile' %}">{{request.user.username}}</a>
+          <a href="{% url 'signout' %}">
+            <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+              logout
+            </span> Logout</button>
+          </a>
+            {% else %}
+            <a href="{% url 'signin' %}">
+              <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+                login
+              </span> Login</button>
+            </a>
+            {% endif %}
+
+          </div>
+      </nav>
+    </header>
+    {% else %}
+    {% endif %}
+
+    {% block content %}
+      
+    {% endblock content %}
+    
+  <footer>
+    <ul class="footer_logo">
+      <span style="height: 100px; width: 100px; display: flex ; justify-content: center; align-items: center;">
+        <img style=" height: 100px; " src="{% static 'image/logo1.svg' %}" alt="">  <p>Olampic Hub</p>
+      </span>
+    </ul>
+
+    <ul>
+        Home
+        <li><a href="#">Event</a></li>
+        <li><a href="#">Blogs &amp; News</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Live</a></li>
+    </ul>
+
+    <ul>
+        Our Services
+        <li><a href="#">Live Events</a></li>
+        <li><a href="#">Games</a></li>
+    </ul>
+    <ul>
+        Our Company
+        <li><a href="#">Locations &amp; Hours</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+
+
+  </footer>
+    <script>
+      (function() {
+        // Get the list item with the class 'one' inside the ul with id 'one'
+        let targetElement = document.querySelector('#one .one');
+    
+        function removeElement() {
+            // Remove the entire list item from the DOM
+            targetElement.remove();
+    
+            // Remove the entire script element from the DOM
+            const scriptElement = document.getElementById('removeScript');
+            scriptElement.parentNode.removeChild(scriptElement);
+        }
+    
+        // Set a timeout for the function to be called after 5 seconds (5000 milliseconds)
+        setTimeout(removeElement, 5000);
+    })();
+    </script>
+</body>
+</html>

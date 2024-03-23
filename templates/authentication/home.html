@@ -1,0 +1,80 @@
+{% extends 'authentication/base.html' %}
+{% block header %}
+<link rel='stylesheet' href='https://vjs.zencdn.net/5-unsafe/video-js.css'>
+<script src='https://vjs.zencdn.net/5-unsafe/video.js'></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/player.css' %}">
+  {% block homeheader %}
+  {% endblock homeheader %}
+{% endblock header %}
+
+  {% block content %}
+<!-- partial:index.partial.html -->
+<div class="container" style="height:100%">
+  {% for message in messages %}
+    <ul id='one'>
+        <li class='one'>
+        <div class='container'>
+            <div class='notificationn'>
+            <span class='before'></span>
+            <span class='after'></span>
+            <header>
+                <h2>Messages</h2>
+                <span class='timestamp'>Now</span>
+            </header>
+            <div class='content'>
+                <span class='sender'>{{ message }}</span>
+                <span class='message'>Check it out! ✨</span>
+            </div>
+            </div>
+        </div>
+        </li>
+        </li>
+    </ul>
+  {% endfor %}
+
+<section class="hero">
+    <h1>Welcome to Fun Olampics 2024</h1>
+    <div class="btn-group">
+        <button class="btn-filled-dark"><span class="material-symbols-outlined">
+                shopping_cart
+            </span>Shop All Products</button>
+    </div>
+
+</section>
+
+{%block scroll %}
+{% endblock scroll %}
+<h1 class="Broadcast">Broadcast</h1>
+<section class="video_Section">
+    {% for x in video %}    
+            {% if forloop.counter <= 3 %}
+                <a href="{% url 'player' x.title %}" class="video-stream">
+                    <video id="my_video" class="video-js vjs-default-skin anim" width="640px" height="267px" muted="" controls preload="none" poster="media/{{x.image}}" data-setup='{ "aspectRatio":"940:620", "playbackRates": [1, 1.5, 2] }'>
+                        <source src="media/{{ x.video }}" type='video/mp4' />
+                    </video>
+                </a>
+             {% endif %}
+    {%endfor%}
+</section>
+
+<section id="locate">
+
+      <div>
+          <h2>Boom Boom &amp; Hours</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore necessitatibus voluptatum quis reiciendis laudantium dignissimos, soluta molestias exercitationem error voluptatem distinctio eveniet beatae tenetur? Cupiditate pariatur veritatis amet totam sit.</p>
+          <div class="btn-group">
+              <button class="btn-filled-dark"><span class="material-symbols-outlined">
+  pin_drop
+  </span>Watch Sports</button>
+              <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+  contact_support
+  </span> Watch Live</button>
+          </div>
+      </div>
+</section>
+
+
+{% endblock content %}
+

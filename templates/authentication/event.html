@@ -1,0 +1,52 @@
+{% extends 'authentication/base.html' %}
+
+{% block header %}
+{% load static %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js'></script>
+<link rel="stylesheet" href="{% static 'css/event.css' %}">
+{% endblock header %}
+{% block content %}
+<section class="event">
+    <span class="hearder">
+        <h1>Top Events</h1>
+    </span>
+    <div class="card__container">
+      {% for x in event %} 
+        <div class="card">
+            <div class="card__cover card__cover--one" style="background-image: url(/media/{{x.poster}})">
+                <div class="card__tag">{{x.event}}</div>
+            </div>
+            <div class="card__body">
+                <div class="card__title">Pokemon Halloween Event</div>
+                <div class="card__desc">{{x.description}}</div>
+            </div>
+        </div>
+      {%endfor%}  
+    </div>
+    <span class="hearder schedule">
+        <h1>Schedule</h1>
+    </span>
+    <div id="team-members">
+        {% for x in event %}    
+          <article class="team-member"><img class="team-member-avatar" src="/media/{{x.poster}}" alt="{{x.event}}"/>
+            <div class="team-member-name">
+              <h3>{{x.event}}</h3>
+              <p>{{x.description}}</p>
+            </div>
+            <ul class="social-links">
+              <li>{{x.time}}</li>
+            </ul>
+          </article>
+        {%endfor%}  
+      </div>
+</section>
+<script>
+    const dragAndDropItems = document.getElementById('team-members');
+
+new Sortable(dragAndDropItems, {
+	animation: 350,
+	chosenClass: 'team-member-chosen',
+	dragClass: 'team-member-drag'
+});
+</script>
+  {% endblock content %}
