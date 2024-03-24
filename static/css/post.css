@@ -3436,8 +3436,14 @@ body.preview .blog-posts .full-top h3.post-title.entry-title {
 
 .post-body img {
     max-width: 100%;
-    height: 250px;
+    height: 350px;
     object-fit: cover;
+    
+}
+@media (max-width=800px) {
+    .post-body img {
+      height: 250px;        
+    }
     
 }
 

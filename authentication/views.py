@@ -294,6 +294,17 @@ def player(request,title):
 
     return render(request, "authentication/player.html",{'data': data,"video": random_videos,'play' : play, 'comments': comments, 'total_comments': total_comments })
 
+@auth
+def support(request):
+    if request.method == 'POST':
+        fname = request.POST['fname'] 
+        lname = request.POST['lname'] 
+        email = request.POST['email']
+        message = request.POST['text']  # Fix the variable name here
+        comment = Contact.objects.create(fname=fname, lname=lname, email=email, message=message)
+        comment.save()
+    return render(request, "authentication/support.html")
+ 
 
 @auth
 def upload(request):
