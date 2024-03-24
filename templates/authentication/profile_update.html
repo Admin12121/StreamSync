@@ -17,6 +17,17 @@
         .button-submit{
             width: 50%;
         }
+        @media (max-width:1130px) {
+            .form{
+                border-radius: 20px 20px 0 0px ;
+            }
+            .form:nth-child(2){
+                border-radius: 0px 0px 20px 20px ;
+            }
+            .user_preview .data_group{
+                height:100%;
+            }
+        }
     </style>
     {% endblock homeheader %} 
   {% block data %}

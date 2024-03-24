@@ -3,6 +3,7 @@
     height: 100%;
     flex-direction: column!important;
     align-items: center;
+    overflow: auto;
 }
 .user_preview{
     display: flex;
@@ -66,12 +67,22 @@
     display: flex;
     flex-direction: column;
 }
-@media (max-width:800px) {
-    .profile_section{
-        justify-content: center;
+@media (max-width:1130px) {
+    .user_preview{
+        height: 500px;
     }
+    .user_data_more{
+        flex-direction: column;
+    }
+}
+@media (max-width:800px) {
     .user_preview{
         flex-direction: column;
         padding: 0;
     }
+    .user_preview .data_group{
+        padding: 0 20px;
+        height: 200px!important;
+    }
 }
+

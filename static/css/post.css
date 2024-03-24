@@ -176,7 +176,6 @@ template {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    word-break: break-word;
     word-wrap: break-word
 }
 
@@ -3057,8 +3056,6 @@ body#layout .all-container {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 60px;
-    padding-right: 60px;
     box-sizing: content-box
 }
 
@@ -3438,7 +3435,10 @@ body.preview .blog-posts .full-top h3.post-title.entry-title {
 }
 
 .post-body img {
-    max-width: 100%
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    
 }
 
 .post-body a {
@@ -4529,8 +4529,8 @@ article.label2.type3 .post-labels-side a:nth-child(4):before {
 
 @media only screen and (max-width:550px) {
     .max-post-width {
-        padding-left: 30px;
-        padding-right: 30px
+        padding-left: 10px;
+        padding-right: 10px
     }
 }
 

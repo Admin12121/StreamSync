@@ -15,8 +15,17 @@
   gap: 20px;
   padding: 0px 10px!important;
   align-content: center;
+  overflow: auto ;
 }
-
+@media (max-width:780px) {
+  .cards{
+    justify-content: center;
+    gap: 35px;
+    align-content: normal;
+    padding: 50px 10px 50px 0px !important;
+    min-height: auto;
+  }
+}
 .card--1 .card__img, .card--1 .card__img--hover {
     background-image: url('https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
 }
