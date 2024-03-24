@@ -1,0 +1,36 @@
+{% extends 'authentication/home.html' %}
+
+{% block homeheader %}
+{% load static %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js'></script>
+<link rel="stylesheet" href="{% static 'css/event.css' %}">
+{% endblock homeheader %}
+{% block data %}
+<section class="event">
+    <span class="hearder">
+        <h1>Top Events Schedule</h1>
+    </span>
+    <div id="team-members">
+        {% for x in event %}    
+          <article class="team-member"><img class="team-member-avatar" src="/media/{{x.poster}}" alt="{{x.event}}"/>
+            <div class="team-member-name">
+              <h3>{{x.event}}</h3>
+              <p>{{x.description}}</p>
+            </div>
+            <ul class="social-links">
+              <li>{{x.time}}</li>
+            </ul>
+          </article>
+        {%endfor%}  
+      </div>
+</section>
+<script>
+    const dragAndDropItems = document.getElementById('team-members');
+
+new Sortable(dragAndDropItems, {
+	animation: 350,
+	chosenClass: 'team-member-chosen',
+	dragClass: 'team-member-drag'
+});
+</script>
+{% endblock data %}

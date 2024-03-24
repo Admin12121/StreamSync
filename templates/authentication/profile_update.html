@@ -1,0 +1,137 @@
+{% extends 'authentication/home.html' %} 
+    {% block homeheader %} 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/updateprofile.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}" />
+    <style>
+        .form{
+            border-radius: 20px 0 0 20px ;
+        }
+        .user_data_more_edit{
+            align-items: center;
+        }
+        .form:nth-child(2){
+            border-radius: 0px 20px 20px 0px ;
+        }
+        .button-submit{
+            width: 50%;
+        }
+    </style>
+    {% endblock homeheader %} 
+  {% block data %}
+       <div class="profile_section">
+         <div class="user_preview">
+            <form method="post" action="{% url 'edit' %}" class="user_data_more_editt" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label class="droppabled" id="drop-area">
+                    <input type="file" accept="image/*" name="profile" id="input-file" hidden>
+                    <div class="info" id="img-view">
+                        <div class="info-drag info-item">
+                        <img class="info-svg" src="/media/{{data.profile}}" alt="">
+                        </div>
+                    </div>
+                </label>
+            </form>
+            <span class="data_group">
+                <span class="user_data">
+                    <h1 class="user_name">{{request.user.username}}</h1>
+                    <p class="user_email">{{request.user.email}}</p>
+                </span>
+                <span class="user_data">
+                    <p>{{data.bio}}</p>
+                    <p><span>{{data.country}}</span> | <span>{{data.address}}</span></p>
+                </span>
+                <a href="{% url 'password' email=request.user.email %}" style="top:60px; gap:5px" class="edit_profile">
+                    <svg width="24px"  height="24px"  viewBox="0 0 24 24"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6889 12.0001C10.6889 13.0231 9.85986 13.8521 8.83686 13.8521C7.81386 13.8521 6.98486 13.0231 6.98486 12.0001C6.98486 10.9771 7.81386 10.1481 8.83686 10.1481H8.83986C9.86186 10.1491 10.6889 10.9781 10.6889 12.0001Z" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.6919 12.0001H17.0099V13.8521" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.1821 13.8521V12.0001" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 12.0001C2.75 5.06312 5.063 2.75012 12 2.75012C18.937 2.75012 21.25 5.06312 21.25 12.0001C21.25 18.9371 18.937 21.2501 12 21.2501C5.063 21.2501 2.75 18.9371 2.75 12.0001Z" stroke="#fff"  stroke-width="1.5"  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    Update Password
+                </a>
+            </span>
+         </div>
+    <form method="post" action="{% url 'edit' %}" class="user_data_more_edit">
+     {% csrf_token %}
+        <span class="user_data_more">
+            <span class="form">
+                <span class="flex-row">
+                    <span class="flex-gap">
+                        <div class="flex-column">
+                            <label>First Name </label></div>
+                            <div class="inputForm">
+                                <input type="text" class="input" name="fname" placeholder="{{request.user.first_name}}" >
+                            </div>
+                    </span>
+                    <span class="flex-gap">
+                        <div class="flex-column">
+                        <label>Last Name </label></div>
+                        <div class="inputForm">
+                            <input type="text" class="input" name="lname" placeholder="{{request.user.last_name}}">
+                        </div>
+                    </span>
+                </span>
+                <div class="flex-column">
+                <label>Username </label></div>
+                <div class="inputForm">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="6" r="4" stroke="#1C274C" stroke-width="1.5"/>
+                        <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    <input type="text" class="input" name="username" placeholder="{{request.user.username}}">
+                </div>
+                <div class="flex-column">
+                <label>Email </label></div>
+                <div class="inputForm">
+                    <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg"><g id="Layer_3" data-name="Layer 3"><path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path></g></svg>
+                    <input type="text" class="input" name="email" placeholder="{{request.user.email}}" >
+                </div>
+            </span>
+            <span class="form">
+                <span class="flex-row">
+                    <span class="flex-gap">
+                        <div class="flex-column">
+                            <label>Country </label></div>
+                            <div class="inputForm">
+                                <input type="text" class="input" name="country" placeholder="{{data.country}}" >
+                            </div>
+                    </span>
+                    <span class="flex-gap">
+                        <div class="flex-column">
+                        <label>Addresh </label></div>
+                        <div class="inputForm">
+                            <input type="text" class="input" name="address" placeholder="{{data.address}}">
+                        </div>
+                    </span>
+                </span>
+                <div class="flex-column">
+                <label>Bio</label></div>
+                <div class="inputForm">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="6" r="4" stroke="#1C274C" stroke-width="1.5"/>
+                        <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    <input type="text" class="input" name="bio" placeholder="{{data.bio}}">
+                </div>
+            </span>
+        </span>
+        <button type="submit" class="button-submit">Update</button>
+    </form>
+     </div>  
+
+     
+  <script src='https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js'></script>
+  <script src="{% static 'js/upload.js' %}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileInput = document.getElementById('input-file');
+        fileInput.addEventListener('change', function() {
+            const form = document.querySelector('.user_data_more_editt');
+            form.submit();
+        });
+    });
+    </script>
+    
+{% endblock data %}

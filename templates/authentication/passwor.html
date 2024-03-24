@@ -1,0 +1,77 @@
+{% extends 'authentication/base.html' %} 
+   {% block header %}
+       {% load static %}
+        <link rel="stylesheet" href="{% static 'css/form.css' %}">
+        <title>Reset Password</title>
+        <style>
+            .Loginform {
+                background: #fff
+            }
+        </style>
+    {% endblock header %}
+
+{% block content %}
+    <div class="Loginform">    
+    {% for message in messages %}
+            <ul id='one'>
+                <li class='one'>
+                <div class='container'>
+                    <div class='notification'>
+                    <span class='before'></span>
+                    <span class='after'></span>
+                    <header>
+                        <h2>Messages</h2>
+                        <span class='timestamp'>Now</span>
+                    </header>
+                    <div class='content'>
+                        <span class='sender'>{{ message }}</span>
+                        <span class='message'>Check it out! ✨</span>
+                    </div>
+                    </div>
+                </div>
+                </li>
+                </li>
+            </ul>
+    {% endfor %}
+  
+    <form method="post" action="{% url 'password' email=request.user.email %}" class="form">
+
+        <span class="branding">
+            <h2>Reset Password for {{email }}</h2>
+        </span>
+        {% csrf_token %}
+        <div class="flex-column">
+          <label>New Password </label></div>
+          <div class="inputForm">
+            <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>        
+            <input type="password" class="input" name="new_password" placeholder="Enter New Password" Required>
+          </div>
+        <div class="flex-column">
+          <label>Confirm_Password </label></div>
+          <div class="inputForm">
+            <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path><path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path></svg>        
+            <input type="password" class="input" name="confirm_password" placeholder="Confirm your Password" Required>
+          </div>
+        <button type="submit" class="button-submit">Change Password</button>
+    </form>
+    <script id="removeScript">
+        // Self-invoking function (IIFE)
+        (function() {
+            // Get the list item with the class 'one' inside the ul with id 'one'
+            let targetElement = document.querySelector('#one .one');
+    
+            function removeElement() {
+                // Remove the entire list item from the DOM
+                targetElement.remove();
+    
+                // Remove the entire script element from the DOM
+                const scriptElement = document.getElementById('removeScript');
+                scriptElement.parentNode.removeChild(scriptElement);
+            }
+    
+            // Set a timeout for the function to be called after 5 seconds (5000 milliseconds)
+            setTimeout(removeElement, 5000);
+        })();
+    </script>
+ </div>
+{% endblock content %}

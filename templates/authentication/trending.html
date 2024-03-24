@@ -1,0 +1,29 @@
+{% extends 'authentication/home.html' %}
+  
+{% block data %}
+
+ <div class="main-container">
+   <div class="videos">
+      {% for x in video %}    
+        <a href="{% url 'player' x.title %}" class="video anim" style="--delay: .4s">
+          <div class="video-time">8 min</div>
+          <div class="video-wrapper">
+            <video muted="">
+              <source src="{{ x.video.url}}" type="video/mp4">
+            </video>
+            <div class="author-img__wrapper video-author">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              <img class="author-img" src="{{x.user.userinfo.profile.url}}" />
+            </div>
+          </div>
+          <p class="video-by">{{x.user}}</p>
+          <p class="video-name">{{x.title}}</p>
+          <p class="video-view">{{x.views}} views<span class="seperate video-seperate"></span>1 week ago</p>
+        </a>
+      {%endfor%}
+   </div>
+  </div> 
+
+{% endblock data %}
