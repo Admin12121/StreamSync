@@ -296,6 +296,7 @@ def player(request,title):
 
 @auth
 def support(request):
+    data = get_object_or_404(UserInfo, user=request.user)
     if request.method == 'POST':
         fname = request.POST['fname'] 
         lname = request.POST['lname'] 
@@ -303,7 +304,7 @@ def support(request):
         message = request.POST['text']  # Fix the variable name here
         comment = Contact.objects.create(fname=fname, lname=lname, email=email, message=message)
         comment.save()
-    return render(request, "authentication/support.html")
+    return render(request, "authentication/support.html",{'data': data})
  
 
 @auth
@@ -323,6 +324,7 @@ def upload(request):
             description=description,
             image=image,
         )
+        video_obj.save()
         return redirect('profile')
     else:
         return render(request,'authentication/upload.html',{'data' :data})
@@ -333,7 +335,7 @@ def articles(request):
     data = get_object_or_404(UserInfo, user=request.user)
     content = {
         'context': context,
-        'profile': data,
+        'data': data,
     }
     return render(request, 'authentication/Articles.html', content)
 
