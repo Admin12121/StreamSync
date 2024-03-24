@@ -17,6 +17,7 @@ urlpatterns = [
     path('password/<str:email>/', views.password, name='password'),
     path("profile_update/", views.edit, name="edit"),
     path("newspost/<str:title>/", views.newspost, name="newspost"),
+    path("articles/", views.articles, name="articles"),
     path("player/<str:title>/", views.player, name="player"),
 
 ]

@@ -263,14 +263,14 @@ def event(request):
 
 @auth
 def newspost(request, title):
-    data = get_object_or_404(News, title=title)
+    articles = get_object_or_404(News, title=title)
     random_news = News.objects.exclude(title=title)
     news = random.sample(list(random_news), min(3, random_news.count()))
-    profile = get_object_or_404(UserInfo, user=request.user)
+    data = get_object_or_404(UserInfo, user=request.user)
     context = {
-        'data':data,
+        'articles':articles,
         'news': news,
-        'profile': profile,
+        'data': data,
     }
     return render(request, "authentication/post.html", context)
 
@@ -315,6 +315,17 @@ def upload(request):
         return redirect('profile')
     else:
         return render(request,'authentication/upload.html',{'data' :data})
+
+@auth
+def articles(request):
+    context = News.objects.all()
+    data = get_object_or_404(UserInfo, user=request.user)
+    content = {
+        'context': context,
+        'profile': data,
+    }
+    return render(request, 'authentication/Articles.html', content)
+
 
 @auth
 def signout(request):
